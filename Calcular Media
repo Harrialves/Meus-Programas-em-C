@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+	float n1,n2,media;
+	printf("Informe um numero:  ");
+	scanf("%f",&n1);
+	printf("Informe outro numero:  ");
+	scanf("%f",&n2);
+	
+
+	media = (n1+n2)/2;
+	
+	printf("Media = %0.2f", media);
+}
