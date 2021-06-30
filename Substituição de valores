@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main(void) {
+	int n1,n2,tmp;
+	printf("Digite um inteiro: ");
+	scanf("%d", &n1);
+	printf("Digite o segundo inteiro: ");
+	scanf("%d", &n2);
+	printf("\nn1 = %d\nn2 = %d\n\n",n1,n2);
+	
+	tmp = n1;
+	n1 = n2;
+	n2 = tmp;
+	
+	printf("\nn1 = %d \nn2 = %d\n\n", n1, n2);
+			
