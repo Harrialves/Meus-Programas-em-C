@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+float media;
+float media2;
+	
+	struct fichaaluno{
+		char nome[25];
+		float nota;
+		float nota2;
+		};
+	
+	struct fichaaluno aluno;
+	printf("Digite o nome do primeiro aluno: ");
+	scanf("%s",aluno.nome);
+	printf("Digite a primeira nota do primeiro aluno: ");
+	scanf("%f",&aluno.nota);
+	printf("Digite a segunda nota do primeiro aluno: ");
+	scanf("%f",&aluno.nota2);
+	
+
+
+        struct fichaaluno2{
+		char nome[25];
+		float nota;
+		float nota2;
+		};
+	
+	struct fichaaluno2 aluno2;
+	printf("Digite o nome do segundo aluno aluno: ");
+	scanf("%s",aluno2.nome);
+	printf("Digite a primeira nota do segundo aluno: ");
+	scanf("%f",&aluno2.nota);
+	printf("Digite a segunda nota do segundo aluno: ");
+	scanf("%f",&aluno2.nota2);
+	
+
+media= (aluno.nota+aluno.nota2)/2;
+media2= (aluno2.nota+aluno2.nota2)/2;
+
+printf("O primeiro aluno tem media maior que o segundo? %d",media>media2);
+printf("\nO segundo aluno tem media maior ou igual a do primeiro? %d",media2>=media);
