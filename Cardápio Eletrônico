@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	char L;
+	float vA=5.0,vB=3.0,vC=9.90,vD=5.0;
+	int qp;
+	float somaA,somaB,somaC,somaD;
+	
+	printf("Menu:\n");
+	printf("       A.Cerveja                5,0\n");
+	printf("       B.Refrigerante           3,0\n");
+	printf("       C.Porcao de tira-gosto   9,90\n");
+    printf("       D.Caldos                 5,00\n");
+    printf("\nInforme a letra do produto e a quantidade:\n");
+	
+	scanf("%s",&L);
+	scanf("%d",&qp);
+	
+	somaA=(vA*qp);
+	somaB=(vB*qp);
+	somaC=(vC*qp);
+    somaD=(vD*qp);
+
+
+	switch(L){
+		case 'A':
+			printf("Subtotal:R$%0.2f",somaA);
+			break;
+	
+	    case 'B':
+			printf("Subtotal: R$%0.2f",somaB);
+			break;
+	
+	   case 'C':
+			printf("Subtotal: R$%0.2f",somaC);
+			break;
+	
+	    case 'D':
+			printf("Subtotal: R$%0.2f",somaD);
+			break;
+		default:
+			printf("Valor invalido");
+	}
+	   	
+}
