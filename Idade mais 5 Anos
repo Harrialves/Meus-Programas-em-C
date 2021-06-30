@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+	int idade, novaIdade;
+	printf("Digite a idade do candidato: ");
+	scanf("%d", &idade);
+	printf("O candidato tem %d anos \n", idade);
+	novaIdade= idade+5;
+	printf("Daqui a 5 anos tera %d anos.\n", novaIdade);
+	system("pause");
+	
+}
