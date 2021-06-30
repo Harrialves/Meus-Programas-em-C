@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main() {
+	float d, r;	
+	char opcao = 's';
+	do{
+		printf("Digite o valor em dolar: ");
+		scanf("%f",&d);
+		r = d*5.34;
+		printf("US$ %.2f = R$ %.2f\n",d,r);
+		printf("deseja fazer outra conversao (s/n)\?");
+		fflush(stdin);
+		scanf("%c",&opcao);
+	}	while(opcao == 's'|| opcao == 'S');
+ 
+
+	}
+	
