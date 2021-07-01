@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main(){
+	int d;
+	float l,cm;
+	
+	printf("Digite o km andado: ");
+	scanf("%d",&d);
+	printf("Digite quantos litros gastou: ");
+	scanf("%f",&l);
+	
+	cm= d/l;
+	printf("Vc fez %.3f km/l",cm);
+	
+	return 0;
+	
+
+
+	 
+	
+}
