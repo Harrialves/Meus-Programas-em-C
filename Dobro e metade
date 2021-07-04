@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main(){
+	int idade,par,dobro,metade;
+	
+	printf("Digite sua idade: ");
+	scanf("%d",&idade);
+	
+	par = idade%2;
+	
+	if(par==0){
+		printf("O numero digitado e par\n");
+	}
+	
+	dobro= idade*2;
+	metade=idade/2;
+	printf("O dobro do numero digitado e %d\n",dobro);
+	printf("A metade do numero digitado e %d\n",metade);
+	
+	return 0;
+	
+	
+}
