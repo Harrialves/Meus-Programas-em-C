@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main(){
-	int idade;
+	int idade,par;
 	
 	printf("Digite sua idade: ");
 	scanf("%d",&idade);
@@ -10,10 +10,13 @@ int main(){
 	}
 	
 	else{
-		printf("Menor de idade");
+		printf("Menor de idade\n");
 	}
 	
+	par = idade%2;
+	
+	if(par==0){
+		printf("O numero digitado e par\n");
+	}
 	return 0;
 	
-	
-}
