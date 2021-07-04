@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main(){
+	int n1,su,at;
+	printf("Digite um numero: ");
+	scanf("%d",&n1);
+	
+	su = n1+1;
+	at = n1-1;
+	
+	printf("O sucessor de %d e %d e o antesessor e %d",n1,su,at);
+	
+	return 0;
+	
+}
