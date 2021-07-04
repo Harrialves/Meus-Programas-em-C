@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main(){
+	float a,b,ar;
+	
+	printf("Digite a base: ");
+	scanf("%f",&b);
+	printf("Digite a altura: ");
+	scanf("%f",&a);
+	
+	ar= b*a;
+	
+	printf("Area e do tringulo e: %.2f",ar);
+	
+	return 0; 
+	
+	
+}
