@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main(){
+	int idh,idm;
+	
+	printf("Digite sua idade(homem): ");
+	scanf("%d",&idh);
+	printf("Digite sua idade(mulher): ");
+	scanf("%d",&idm);
+	
+	if (idh%2==0 && idm%2==0){
+	 printf("O casal tem direito a desconto");
+		
+	}
+	else{
+		printf("O casal nao tem direito a desconto");
+	}
+	
+	return 0;
+		
+}
