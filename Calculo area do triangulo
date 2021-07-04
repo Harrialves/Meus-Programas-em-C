@@ -7,7 +7,7 @@ int main(){
 	printf("Digite a altura: ");
 	scanf("%f",&a);
 	
-	ar= b*a;
+	ar= (b*a)/2;
 	
 	printf("Area e do tringulo e: %.2f",ar);
 	
