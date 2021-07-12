@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main(){
+	float g,i,j;
+	
+	printf("Digite o valor gasto: ");
+	scanf("%f",&g);
+	
+	i= (g-500)*0.50;
+
+	
+	if(g>500){
+	printf("Voce pagara %.2f de imposto",i);
+	
+	}
+	
+	return 0;
+	
+	
+	
+}
