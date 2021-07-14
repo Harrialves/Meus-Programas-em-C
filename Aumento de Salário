@@ -6,15 +6,15 @@ int main(){
 	scanf("%f",&sal);
     
     if(sal<=1000){
-    	aumento= sal*0.15;
+    	aumento= sal*1.15;
     	nsal= sal+aumento; 
 	}
 	if(1000<sal<=2000){
-		aumento=sal*0.10;
+		aumento=sal*1.10;
 		nsal=sal+aumento;
 	}
 	if(2000<sal){
-		aumento= sal*0.05;
+		aumento= sal*1.05;
 		nsal= sal+aumento;
 	}
 	
