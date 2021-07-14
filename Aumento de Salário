@@ -1,0 +1,29 @@
+#include <stdio.h>
+int main(){
+   float sal,aumento,nsal;
+	
+	printf("Digite seu salario:  ");
+	scanf("%f",&sal);
+    
+    if(sal<=1000){
+    	aumento= sal*0.15;
+    	nsal= sal+aumento; 
+	}
+	if(1000<sal<=2000){
+		aumento=sal*0.10;
+		nsal=sal+aumento;
+	}
+	if(2000<sal){
+		aumento= sal*0.05;
+		nsal= sal+aumento;
+	}
+	
+	printf("Seu novo salario e %.2f",nsal);
+
+
+	
+	return 0;
+	
+	
+	
+}
