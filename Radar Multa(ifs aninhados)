@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main(){
+	float va,vm,multa,diferenca;
+	int pontos;
+	scanf("%f%f",&vm,&va);
+	
+	diferenca= va/vm;
+	
+	if(diferenca>1){
+		if(diferenca<=1.2){
+			multa= 85.13;
+			pontos= 4;
+		}
+		else if(diferenca <=1.5){
+			multa = 127.69;
+		    pontos= 5;
+		}
+		else{
+			multa = 574.62;
+			pontos = 7;
+		}
+	}
+	
+	
+printf("Voce foi multado em %.2f e perdera %d pontos na carteira",multa,pontos);	
+
+
+
+return 0;
+
+}
+
+
