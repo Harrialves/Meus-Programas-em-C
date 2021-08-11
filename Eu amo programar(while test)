@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main(){
+int n, contador = 0,dobro;
+scanf("%d",&n);
+ 
+ while(contador < n*2){
+ 	
+ 	printf("Eu adoro programar\n");
+ 	contador = contador + 1 ;
+
+ }
+	
+return 0;	
+	
+	
+}
