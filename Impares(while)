@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main(){
+	int contador = 0,impar;
+	
+	impar= contador%2;
+	while(contador <20){
+		
+		contador = contador + 1;
+        impar= contador%2;
+        if(impar!=0){
+        	printf("%d\n",contador);
+		}
+	}
+	
+	
+	return 0;
+	
+	
+}
