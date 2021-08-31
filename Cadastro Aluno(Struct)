@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void){
+	
+struct ficha_aluno{
+	int numero;
+	char nome[40];
+	float nota;
+};
+ struct ficha_aluno aluno; 
+ 
+ printf("\n-------------- Cadstro de aluno--------------\n\n\n");
+ 
+ printf("Nome do aluno: ");
+fgets(aluno.nome, 40, stdin);
+
+printf("Digite o numero do aluno: ");
+scanf("%d",&aluno.numero);
+
+printf("informe a nota do aluno: ");
+scanf("%f",&aluno.nota);
+
+ printf("\n-------------- Lendo os dados da struct--------------\n\n\n");
+	printf("Nome do aluno: %s", aluno.nome);
+	printf("Digite o numero do aluno: %d\n", aluno.numero);
+	printf("Nota: %.2f\n",aluno.nota);
+	
+	
+	
+	
+	
+	
+return 0;
+	
+	
+	
+}
+
+
+	
+	
+	
