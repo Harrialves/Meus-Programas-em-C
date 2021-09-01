@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 int main(void){
@@ -20,9 +21,9 @@ scanf("%d",&aluno.numero);
 printf("informe a nota do aluno: ");
 scanf("%f",&aluno.nota);
 
- printf("\n-------------- Lendo os dados da struct--------------\n\n\n");
+ printf("\n-------------- Lendo os dados do cadastro--------------\n\n\n");
 	printf("Nome do aluno: %s", aluno.nome);
-	printf("Digite o numero do aluno: %d\n", aluno.numero);
+	printf("O numero do aluno: %d\n", aluno.numero);
 	printf("Nota: %.2f\n",aluno.nota);
 	
 	
@@ -37,6 +38,3 @@ return 0;
 }
 
 
-	
-	
-	
