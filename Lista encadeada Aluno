@@ -1,0 +1,149 @@
+#include <stdio.h>
+#include <stdlib.h>
+//Criação da estrutura No
+typedef struct No{
+	int valor;
+	struct No *prox;
+	
+}No;
+
+//Criação da estrutura Lista
+typedef struct{
+	No *inicio;
+	int tam;
+}Lista;
+
+
+//Criação da função Buscar na lista
+No* buscar(Lista *lista, int num){
+	No*aux, *no=NULL;
+	
+	aux = lista->inicio;
+	while(aux && aux->valor!= num){
+		aux=aux->prox;
+    }
+	if(aux)
+	 no= aux;
+    return no;
+	 
+
+}
+
+
+//Criação da função Remover da lista
+void remover(Lista *lista,int valor){
+	No *inicio = lista->inicio;
+	No *noARemover = NULL;
+	
+	if(inicio != NULL && lista->inicio->valor==valor){
+		noARemover = lista->inicio;
+		lista->inicio = noARemover->prox;
+		
+	}
+	else{
+		while(inicio !=NULL && inicio->prox != NULL && inicio->prox->valor !=valor){
+			inicio = inicio->prox;
+			
+		}
+		if(inicio != NULL && inicio->prox != NULL){
+			noARemover = inicio->prox;
+			inicio->prox = noARemover->prox;
+		}
+		
+	}
+	if(noARemover){
+		free(noARemover);
+		lista->tam--;
+		
+	}
+	
+}
+
+
+//Criação da função Inserção no inicio da lista
+void inserirInicio(Lista *lista, int valor){
+	No *novo = (No*)malloc(sizeof(No));
+	novo->valor =valor;
+	novo->prox = lista->inicio;
+	lista->inicio = novo;
+	lista->tam++;
+		
+}
+
+//Criação da função Imprimir a lista
+void imprimir(Lista *lista){
+	No *inicio = lista->inicio;
+	printf("Tamanho da lista: %d\n", lista->tam);
+	while(inicio != NULL){
+		printf("%d ",inicio->valor);
+		inicio = inicio->prox;
+		
+	}
+	printf("\n\n");
+	
+}
+
+//Execução principal do programa 
+int main(){
+	Lista lista;
+    No *removido;
+	int opcao, valor;
+	
+	lista.inicio = NULL;
+	lista.tam = 0;
+	
+
+	
+//Criação do Menu com as opções 
+	do{
+		printf("1 - Inserir Aluno\n2 - Exibir Alunos Cadastrados\n3 - Remover Aluno\n4 - Buscar Aluno\n5 - Sair\n");
+		scanf("%d",&opcao);
+		switch(opcao){
+			case 1:
+				printf("Digite o numero do aluno a ser inserido: ");
+				scanf("%d",&valor);
+				inserirInicio(&lista, valor);
+				break;
+				
+				
+			
+			case 2:
+				imprimir(&lista);
+				break;
+			
+			
+			case 3:
+				printf("Digite o numero do aluno a ser removido: ");
+				scanf("%d",&valor);
+				remover(&lista, valor);
+				break;
+			
+			
+			
+			case 4:
+				printf("Digite o numero do aluno a ser buscado: ");
+				scanf("%d",&valor);
+				removido = buscar(&lista, valor);
+				if(removido)
+				  printf("Aluno encontrado: %d\n\n", removido->valor);
+			    else 
+				  printf("Aluno nao encontrado!\n\n");
+				break;
+			
+			
+			
+			case 5:
+				printf("Finalizando...\n");
+				break;
+			    default:
+					printf("Opcao invalida!\n");
+		
+		
+		}
+	
+	}while(opcao != 5);
+	
+	
+	return 0;
+	
+}
