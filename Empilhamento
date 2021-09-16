@@ -1,0 +1,136 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
+#define MAX 21
+
+//ESTRUTURA
+
+typedef struct Caixas{
+  char cor[MAX];
+  struct Caixas *prox;
+
+
+}Caixas;
+
+//VARIÁVEISS GLOBAIS 
+ char cor[MAX];
+ Caixas *topo;//ponteiro para o topo da pilha 
+ 
+ 
+//FUNÇÃO AUXILIAR LER DADOS 
+
+void cor_caixa(){
+	
+	system("cls");
+	printf("Entre com a cor da caixa: ");
+	fflush (stdin);
+	fgets(cor, MAX, stdin);
+	
+}
+
+
+//FUNÇÃO INSERIR
+void empilha_caixa(){
+	cor_caixa();//chamado a função
+	Caixas *pnovo=(Caixas*)malloc(sizeof(Caixas));//alocando memoria para os novos elementos
+	strcpy(pnovo->cor,cor);
+	pnovo->prox=NULL;
+	
+    if(topo==NULL){//se a pilha estiver vazia
+	    topo= pnovo;//topo recebe o novo elemento
+ }
+   
+   
+	else{//se a pilha não estiver vazia
+	pnovo->prox=topo;
+	topo=pnovo;
+ }
+
+
+}
+	
+	
+
+//FUNÇÃO EXCLUIR 
+
+void remove_caixa(){
+	Caixas *aux;
+	
+	if(topo==NULL){
+		printf("\n\nErro, empilhamento de caixas vazia.\n\n");
+		return;
+	}
+	else{
+		aux = topo;
+		topo = topo->prox;
+		
+		free(aux);
+		  printf("\nCaixa removida do topo\n");
+		  
+	}
+		
+}
+
+//FUNÇÃO LISTAR 
+
+void listar_caixas(){
+	Caixas *aux;
+	aux = topo; 
+	printf("\t\tEMPILHAMENTO\n\n");
+		if(topo==NULL){
+		printf("A pilha esta vazia\n\n");
+	}
+	
+
+	
+	while(aux !=NULL){
+		printf("Cor: %s", aux->cor);
+		aux=aux->prox;
+	}
+	
+		
+}
+
+//FUNÇÃO PRINCIPAL 
+
+int main(){
+	char op;
+	topo= NULL;//inicializando a pilha como vazia
+	do{
+		system("cls");
+		
+		printf("\t\tEMPILHAMENTO DE CAIXAS DE COPOS");
+	    printf("\n\n(E)mpilhar Caixa\n");
+	    printf("(L)istar Estoque Caixa\n");
+	    printf("(D)esempilhar Caixa\n");
+	    printf("(S)air do Programa\n\n");
+	    printf("Digite a opcao: ");
+	    op=toupper(getche()); 
+	
+	
+	switch(op){
+		
+		case'E': empilha_caixa();
+		break;
+		
+		case'L': listar_caixas();
+		break;
+		
+		case'D': remove_caixa();
+		break;
+		
+		case'S': exit(0);
+		default: printf("\n\nOpcao invalida, digite novamente.\n\n");	
+		
+	}
+	
+	system("PAUSE");
+	
+}while(op!='S');
+
+return(0);
+	
+}
+	
