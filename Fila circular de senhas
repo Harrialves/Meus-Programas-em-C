@@ -1,0 +1,201 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <time.h>
+
+//Implementação da fila 
+
+//Estrutura que será usada para cada elemento da fila
+
+typedef struct{
+	int senha[50];
+	char nome[15];
+	
+}TCliente;
+
+TCliente filac[30];
+int op,tamf,aleatoria[50]; 
+
+void linha(){
+	int i;
+	for(i=1; i<=80;i++)
+	  printf("_");
+	  printf("\n");
+	  
+}
+
+
+void cabec(){
+	system("cls");
+	printf("Senha Automatica - Fila\n");
+	linha();
+	
+}
+
+
+
+//Função para gerar a senha automaticamente
+using namespace std; 
+
+bool existe(int valores[], int tam, int valor){
+	for(int i = 0; i<tam; i++){
+	   if(valores[i]==valor)
+	    return true;    
+	}
+
+return false;
+
+
+}
+
+void GerarAleatorios(int numeros[],int quantNumeros, int limite){
+	srand(time(NULL));
+	
+	int v;
+	for(int i=0; i<quantNumeros; i++){
+		v = rand() % limite;
+		while(existe(numeros,i,v)){
+			v = rand() % limite;
+		}
+		numeros[i] = v;
+		aleatoria[50]= v;
+	}
+
+}
+
+
+//Função para inserir um novo clinte no final da fila
+
+void inserir(){
+	//Leitura dos dados do cliente
+	cabec();
+	 int valores,tam,valor;
+	 existe(&valores,tam,valor);
+	printf("\n Novo cliente na fila\n");
+	if(tamf<30){ //Se ainda tem vaga na fila
+	 printf("\n Senha aleatoria: %d ", aleatoria[50]);
+	 
+	 printf("\n Nome: ");
+	 fflush(stdin);
+	 gets(filac[tamf].nome);
+	 tamf++;
+	 printf("\n\nInserindo com sucesso!\n\n");
+	}
+	else{ //Fila cheia 
+	printf("\n\nFila cheia! Nao pode inserir cliente no momento\n\n");
+	getche();
+	}
+
+}
+
+
+
+
+void retirafila(){
+	int i,confrem, continuar;
+	do{
+		cabec();
+		printf("Retirar Cliente da fila\n");
+		if(tamf !=0){ //Verifica se tem elementos na fila
+         printf("\n\n Senha     Nome\n");
+         printf("-------------------------------------------------\n");
+         printf(" %7d      %-20s\n",filac[i].senha,filac[0].nome);
+         
+         printf("-------------------------------------------------\n");
+         printf("\n\nConfirma retirada do cliente (1 - sim/0 - nao)? ");
+         scanf("%d",&confrem);
+         if(confrem == 1){ //Confirma que deseja remover 
+          for(i=0; i<tamf; i++)
+          filac[i] = filac[i+1];
+          tamf--;
+          printf("\n\nRetirado da fila com sucesso!\n\n");
+         }
+         else{ //Cancelou a remoção 
+         printf("\n\n Retirada cancelada.\n\n");
+         }
+        }
+        else{//Fila vazia 
+         printf("\n\nFila vazia! nenhum cliente para remover.\n\n");
+         getche();
+         break;	
+		}
+        printf("\n\nDeseja retirar outro cliente(1 - sim/0 - nao)? ");
+		scanf("%d", &continuar);
+    }while(continuar == 1); //Continuar retirando cliente da fila 
+		
+}
+
+//Listar todos os clientes da fila
+
+void listar(){
+	int i;
+	cabec();
+	printf("\nListagem de clientes da  fila\n");
+	if(tamf != 0){
+		printf("\n\n   Senha     Nome\n");
+		printf("-------------------------------------------------\n");
+		for(i=0; i<tamf; i++)
+		printf("%7d  %-15s\n",filac[i].senha,filac[i].nome);
+		printf("\n\nQuantidade de clientes na fila = %d\n",tamf);
+				
+	}
+	else
+	 printf("\n\nNao tem nenhum cliente na fila. ");
+	printf("\n\n\nTecle enter para voltar para o menu.\n");
+	getche();
+	 
+}
+
+//Função principal 
+
+int main(){
+		//Gerar senha aleatoria 
+	   	int numeros[50],aleatorio[50];
+	  GerarAleatorios(numeros,50,100);
+	 for(int i = 0; i<50; i++){
+		
+		aleatorio[50]=numeros[i];
+	
+	tamf= 0;
+	do{
+		cabec();
+		printf("\nOpcoes: ");
+		printf("\n\n    1 - Inserir Cliente na fila");
+		printf("\n\n    2 - Retirar cliente da fila");
+		printf("\n\n    3 - Listar todos os clientes da fila");
+		printf("\n\n    0 - para sair \n");
+		linha();
+		printf("\nEntre com sua opcao: ");
+		scanf("%d",&op); //A opção do usuario
+		switch(op){
+			case 1:
+				GerarAleatorios(numeros,50,100);
+				inserir();
+				break;
+			
+			case 2:
+			    retirafila();
+			    break;
+			
+			case 3:
+				GerarAleatorios(numeros,50,100);
+				listar();
+				break;
+		    
+			case 0: break;
+			
+			default: printf("\nOpcao invalida!");		
+				
+		}
+	}while(op !=0);
+	
+	return 0;
+
+}
+
+
+
+}
+
+
+
