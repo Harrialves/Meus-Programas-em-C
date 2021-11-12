@@ -1,0 +1,145 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define TAM 15
+
+//criação da struct cliente//
+typedef struct{
+	char nome[50];
+	int  idade;
+	char email[50];
+	int cpf;
+}cliente;
+
+
+
+//criação da função de leitura
+cliente lercliente(){
+	cliente c;
+	printf("\n Digite seu nome: ");
+	fgets(c.nome, 50, stdin);
+	printf("\n Digite seu cpf: ");
+	scanf("\n %d", &c.cpf);
+	printf("\n Digite sua idade: ");
+	scanf("\n %d", &c.idade);
+	fflush(stdin);
+	printf("\n Digite seu email: ");
+    fgets(c.email, 50, stdin);
+    
+	return c;
+}
+
+//inicialização da tabela
+void inicializarTabela(cliente t[]){
+	int i;
+	
+	for(i = 0; i< TAM; i++)
+	 t[i].cpf= 0;
+}
+
+//função de espalhamento 
+int funcaoHash(int chave){
+	return chave% TAM;
+}
+
+
+//função de inserção 
+void inserir(cliente t[]){
+	cliente c = lercliente();
+	int id = funcaoHash(c.cpf);
+	while(t[id].cpf != 0){
+		id = funcaoHash(id +1);
+	}
+	t[id] = c;
+}
+
+//função de impressão
+void imprimircliente(cliente c){
+	printf("\tNome: %s",c.nome);
+	printf("\tCpf: %d",c.cpf);
+	printf("\n\tIdade: %d",c.idade);
+	printf("\n\tEmail: %s",c.email);
+}
+
+//função de busca
+cliente* busca(cliente t[], int chave){
+ int id = funcaoHash(chave);
+ printf("\n Indice gerada: %d\n", id);
+ while(t[id].cpf != 0){
+ 	 if(t[id].cpf == chave)
+ 	     return &t[id];
+ 	 
+	 else
+	 	id= funcaoHash(id + 1);	 
+ }
+  return NULL;	
+		
+}
+
+//função que realiza os comodando para a impressão 
+void imprimir(cliente t[]){
+	int i;
+	for(i = 0; i< TAM; i++){
+		printf("%d\n", i);
+		if(t[i].cpf != 0)
+		 imprimircliente(t[i]);
+		printf("\n----------------------------------------\n"); 
+	}
+	
+	
+}
+
+//função principal
+int main(){
+	 int opcao, valor, retorno;
+	cliente *buscar, tabela[TAM];
+	inicializarTabela(tabela);
+
+
+//menu inicial	
+do{
+	
+	system("cls");
+	
+	printf("\n0 - Sair\n1 - Inserir\n2 - Buscar\n3 - Imprimir\n");
+	scanf("%d", &opcao);
+	getchar();
+	
+switch(opcao){
+	case 1:
+	  inserir(tabela);
+	  break;
+    case 2:
+    	printf("\tQual o cpf deseja buscas? ");
+    	scanf("%d", &valor);
+    	buscar = busca(tabela, valor);
+    	if(buscar){
+    		printf("\nCpf encontrado:\n");
+    		imprimircliente(*buscar);
+		}
+	else
+	  printf("\tCpf nao encontrado!\n");
+	  break;
+	case 3:
+	  imprimir(tabela);
+	  break;
+	  
+	default:
+	printf("Opcao invalida!\n");    
+	
+
+}
+
+system("PAUSE");
+
+		
+}while(opcao != 0);
+	
+return 0;
+
+
+
+
+}
+
